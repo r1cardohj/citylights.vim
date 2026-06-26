@@ -71,7 +71,7 @@ function! s:hi(group, fg, bg, ...)
     let l:cmd .= ' guibg=' . l:bg
   endif
   if l:attr !=# ''
-    let l:cmd .= ' gui=' . l:attr . ' cterm=' . l:attr
+    let l:cmd .= ' gui=' . l:attr . ' cterm=' . l:attr . ' term=' . l:attr
   endif
 
   execute l:cmd
@@ -84,12 +84,12 @@ endfunction
 call s:hi('Normal',       s:fg,         s:bg)
 call s:hi('NormalNC',     s:fg,         s:bg)
 call s:hi('Cursor',       s:bg,         s:blue_bright)
-call s:hi('CursorLine',   '',           s:bg_line)
-call s:hi('CursorColumn', '',           s:bg_line)
+call s:hi('CursorLine',   '',           s:bg_line, 'NONE')
+call s:hi('CursorColumn', '',           s:bg_line, 'NONE')
 call s:hi('LineNr',       s:fg_dark,    s:bg)
 call s:hi('CursorLineNr', s:blue_bright, s:bg_line, 'bold')
 call s:hi('SignColumn',   '',           s:bg)
-call s:hi('ColorColumn',  '',           s:bg_line)
+call s:hi('ColorColumn',  '',           s:bg_line, 'NONE')
 call s:hi('VertSplit',    s:bg_alt,     s:bg_alt)
 call s:hi('Folded',       s:fg_dim,     s:bg_alt)
 call s:hi('FoldColumn',   s:fg_dim,     s:bg)
@@ -298,6 +298,20 @@ call s:hi('ALEVirtualTextWarning',  s:yellow,  s:bg_alt)
 call s:hi('ALEVirtualTextInfo',     s:blue,    s:bg_alt)
 call s:hi('ALEVirtualTextStyleError',   s:red,     s:bg_alt)
 call s:hi('ALEVirtualTextStyleWarning', s:yellow,  s:bg_alt)
+
+" ============================================================
+" CtrlP
+" ============================================================
+
+call s:hi('CtrlPMatch',     s:yellow,     '',       'bold')
+call s:hi('CtrlPNoEntries', s:red,        '',       'bold')
+call s:hi('CtrlPPrtBase',   s:fg_dim,     '')
+call s:hi('CtrlPPrtText',   s:fg,         '')
+call s:hi('CtrlPPrtCursor', s:blue_bright, '',       'bold')
+call s:hi('CtrlPLinePre',   s:fg_dim,     '')
+call s:hi('CtrlPMode1',     s:cyan,       '',       'bold')
+call s:hi('CtrlPMode2',     s:fg_dark,    '')
+call s:hi('CtrlPStats',     s:cyan,       '',       'bold')
 
 " ============================================================
 " Git Signs
