@@ -314,12 +314,33 @@ call s:hi('CtrlPMode2',     s:fg_dark,    '')
 call s:hi('CtrlPStats',     s:cyan,       '',       'bold')
 
 " ============================================================
-" Git Signs
+" Git Signs / vim-gitgutter
 " ============================================================
 
-call s:hi('GitGutterAdd',    s:green,  '')
-call s:hi('GitGutterChange', s:blue,   '')
-call s:hi('GitGutterDelete', s:red,    '')
+" Signs
+call s:hi('GitGutterAdd',          s:green,  '')
+call s:hi('GitGutterChange',       s:blue,   '')
+call s:hi('GitGutterDelete',       s:red,    '')
+call s:hi('GitGutterChangeDelete', s:blue,   '')
+
+" Line highlights
+call s:hi('GitGutterAddLine',          '', s:bg_alt)
+call s:hi('GitGutterChangeLine',       '', s:bg_alt)
+call s:hi('GitGutterDeleteLine',       '', s:bg_alt)
+call s:hi('GitGutterChangeDeleteLine', '', s:bg_alt)
+
+" Line number highlights
+call s:hi('GitGutterAddLineNr',          s:green, s:bg)
+call s:hi('GitGutterChangeLineNr',       s:blue,  s:bg)
+call s:hi('GitGutterDeleteLineNr',       s:red,   s:bg)
+call s:hi('GitGutterChangeDeleteLineNr', s:blue,  s:bg)
+
+" Intra-line highlights
+call s:hi('GitGutterAddIntraLine',     s:green, s:bg, 'reverse')
+call s:hi('GitGutterChangeIntraLine',  s:blue,  s:bg, 'reverse')
+call s:hi('GitGutterDeleteIntraLine',  s:red,   s:bg, 'reverse')
+
+" GitSigns
 call s:hi('GitSignsAdd',     s:green,  '')
 call s:hi('GitSignsChange',  s:blue,   '')
 call s:hi('GitSignsDelete',  s:red,    '')
