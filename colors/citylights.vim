@@ -278,6 +278,28 @@ call s:hi('LspDiagnosticsDefaultInformation',   s:blue,   '')
 call s:hi('LspDiagnosticsDefaultHint',          s:cyan,   '')
 
 " ============================================================
+" ALE (Asynchronous Lint Engine)
+" ============================================================
+
+call s:hi('ALEError',            s:red,        '',       'undercurl')
+call s:hi('ALEWarning',          s:yellow,     '',       'undercurl')
+call s:hi('ALEInfo',             s:blue,       '',       'undercurl')
+call s:hi('ALEStyleError',       s:red,        '',       'undercurl')
+call s:hi('ALEStyleWarning',     s:yellow,     '',       'undercurl')
+
+call s:hi('ALEErrorSign',        s:red,        s:bg)
+call s:hi('ALEWarningSign',      s:yellow,     s:bg)
+call s:hi('ALEInfoSign',         s:blue,       s:bg)
+call s:hi('ALEStyleErrorSign',   s:red,        s:bg)
+call s:hi('ALEStyleWarningSign', s:yellow,     s:bg)
+
+call s:hi('ALEVirtualTextError',    s:red,     s:bg_alt)
+call s:hi('ALEVirtualTextWarning',  s:yellow,  s:bg_alt)
+call s:hi('ALEVirtualTextInfo',     s:blue,    s:bg_alt)
+call s:hi('ALEVirtualTextStyleError',   s:red,     s:bg_alt)
+call s:hi('ALEVirtualTextStyleWarning', s:yellow,  s:bg_alt)
+
+" ============================================================
 " Git Signs
 " ============================================================
 
