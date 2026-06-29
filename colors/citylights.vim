@@ -254,6 +254,89 @@ call s:hi('TSDefinitionUsage',   s:blue,       '')
 call s:hi('TSCurrentScope',      s:blue,       '',       'bold')
 
 " ============================================================
+" Treesitter (modern @* capture groups, Neovim >= 0.8)
+" The TS* groups above are obsolete on Neovim >= 0.8 and are kept
+" only for old versions. These @* groups are what modern Neovim
+" actually uses. Language-specific scopes use the @capture.lang
+" form (e.g. *.python) which Neovim resolves before the generic one.
+" ============================================================
+
+if has('nvim')
+  " Variables / identifiers -> variable #718CA1
+  call s:hi('@variable',             s:fg_dim,   '')
+  call s:hi('@variable.builtin',     s:orange,   '')   " this/super -> #d98e48
+  call s:hi('@variable.parameter',   s:yellow,   '')   " parameter -> #ebbf83
+  call s:hi('@variable.member',      s:fg_dim,   '')   " obj property -> #718CA1
+  call s:hi('@property',             s:fg_dim,   '')
+  call s:hi('@field',                s:fg_dim,   '')
+  call s:hi('@module',               s:fg_dim,   '')   " import module name -> #718CA1
+  call s:hi('@namespace',            s:fg_dim,   '')
+
+  " Constants / literals -> constant #e27e8d
+  call s:hi('@constant',             s:pink,     '')
+  call s:hi('@constant.builtin',     s:pink,     '')   " True/False/None
+  call s:hi('@constant.macro',       s:pink,     '')
+  call s:hi('@number',               s:pink,     '')
+  call s:hi('@number.float',         s:pink,     '')
+  call s:hi('@boolean',              s:pink,     '')
+  call s:hi('@character',            s:blue_light, '')
+  call s:hi('@character.special',    s:blue_light, '')
+
+  " Strings -> #68A1F0
+  call s:hi('@string',               s:blue_light, '')
+  call s:hi('@string.regexp',        s:blue_light, '')
+  call s:hi('@string.escape',        s:blue_light, '')
+  call s:hi('@string.special',       s:blue_light, '')
+
+  " Functions -> support.function / entity #70e1e8
+  call s:hi('@function',             s:cyan,     '')
+  call s:hi('@function.call',        s:cyan,     '')
+  call s:hi('@function.builtin',     s:cyan,     '')
+  call s:hi('@function.method',      s:cyan,     '')
+  call s:hi('@function.method.call', s:cyan,     '')
+  call s:hi('@function.macro',       s:cyan,     '')
+  call s:hi('@constructor',          s:cyan,     '')
+
+  " Keywords -> keyword #5ec4ff
+  call s:hi('@keyword',              s:blue_bright, '')
+  call s:hi('@keyword.function',     s:cyan_dark,   '')  " storage.type.function (js) -> #008B94
+  call s:hi('@keyword.operator',     s:blue_bright, '')
+  call s:hi('@keyword.import',       s:blue_bright, '')
+  call s:hi('@keyword.return',       s:blue_bright, '')
+  call s:hi('@keyword.conditional',  s:blue_bright, '')
+  call s:hi('@keyword.repeat',       s:blue_bright, '')
+  call s:hi('@keyword.exception',    s:blue_bright, '')
+  call s:hi('@keyword.type',         s:blue_bright, '')  " class/struct keyword
+  call s:hi('@conditional',          s:blue_bright, '')
+  call s:hi('@repeat',               s:blue_bright, '')
+  call s:hi('@exception',            s:blue_bright, '')
+
+  " Types -> storage.type #008B94
+  call s:hi('@type',                 s:cyan_dark, '')
+  call s:hi('@type.builtin',         s:teal,      '')   " support.type.primitive -> #33ced8
+  call s:hi('@type.definition',      s:cyan_dark, '')
+  call s:hi('@attribute',            s:cyan,      '')   " decorators -> entity #70e1e8
+
+  " Punctuation / operators -> #718CA1
+  call s:hi('@operator',             s:fg_dim,   '')
+  call s:hi('@punctuation.delimiter', s:fg_dim,  '')
+  call s:hi('@punctuation.bracket',  s:fg_dim,   '')
+  call s:hi('@punctuation.special',  s:blue_bright, '')
+
+  " Comments / markup
+  call s:hi('@comment',              s:fg_comment, '', 'italic')
+  call s:hi('@comment.todo',         s:yellow,   s:bg, 'bold')
+  call s:hi('@tag',                  s:cyan_dark, '')
+  call s:hi('@tag.attribute',        s:orange,   '')
+  call s:hi('@tag.delimiter',        s:fg_dim,   '')
+
+  " Python-specific overrides (match City Lights python scopes)
+  call s:hi('@keyword.function.python', s:purple, '')   " def -> #b62d65
+  call s:hi('@variable.builtin.python', s:purple, '')   " self/cls -> #b62d65
+  call s:hi('@type.python',             s:cyan,   '')   " class name -> entity #70e1e8
+endif
+
+" ============================================================
 " LSP / Diagnostics
 " ============================================================
 
