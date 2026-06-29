@@ -14,6 +14,14 @@ Colors are extracted directly from the official [`city-lights-syntax-vsc`](https
 Plug 'r1cardohj/citylights.vim'
 ```
 
+## Usage
+
+```vimscript
+set termguicolors
+
+colorscheme citylights 
+```
+
 ## License
 
 MIT
