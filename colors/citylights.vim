@@ -870,6 +870,25 @@ call s:hi('shCsh',         s:blue_bright,  '')
 call s:hi('shTcl',         s:blue_bright,  '')
 
 " ============================================================
+" Avante
+" ============================================================
+
+call s:hi('AvanteTitle',                  s:blue,        '', 'bold')
+call s:hi('AvanteReversedTitle',          s:bg,          s:blue)
+call s:hi('AvanteSubtitle',               s:cyan,        '', 'bold')
+call s:hi('AvanteReversedSubtitle',         s:bg,          s:cyan)
+call s:hi('AvanteThirdTitle',             s:purple,      '', 'bold')
+call s:hi('AvanteReversedThirdTitle',     s:bg,          s:purple)
+call s:hi('AvanteConflictCurrent',        s:blue_bright, '', 'reverse')
+call s:hi('AvanteConflictIncoming',       s:green,       '', 'reverse')
+call s:hi('AvanteConflictCurrentLabel',   s:blue_bright, '', 'bold')
+call s:hi('AvanteConflictIncomingLabel',  s:green,       '', 'bold')
+call s:hi('AvantePopupHint',              s:fg_dim,      '')
+call s:hi('AvanteInlineHint',             s:fg_dim,      '', 'italic')
+call s:hi('AvantePromptInput',            s:fg,          s:bg_widget)
+call s:hi('AvantePromptInputBorder',      s:blue_bright, s:bg_widget)
+
+" ============================================================
 " Terminal
 " ============================================================
 
