@@ -119,11 +119,24 @@ call s:hi('Question',     s:green,      '',       'bold')
 call s:hi('WarningMsg',   s:yellow,     '',       'bold')
 call s:hi('ErrorMsg',     s:red,        '',       'bold')
 
+" Floating windows (blink/nvim-cmp docs, snacks, etc.)
+call s:hi('NormalFloat',  s:fg,         s:bg_widget)
+call s:hi('FloatBorder',  s:fg_dark,    s:bg_widget)
+call s:hi('FloatTitle',   s:blue_bright, s:bg_widget, 'bold')
+call s:hi('FloatFooter',  s:fg_dim,     s:bg_widget)
+
 " Pmenu (completion menu)
 call s:hi('Pmenu',        s:fg,         s:bg_widget)
 call s:hi('PmenuSel',     s:bg,         s:blue_bright, 'bold')
 call s:hi('PmenuSbar',    '',           s:bg_alt)
 call s:hi('PmenuThumb',   '',           s:fg_dark)
+" Pmenu kind/extra columns (Neovim >= 0.11, used by blink.cmp)
+call s:hi('PmenuKind',    s:cyan,       s:bg_widget)
+call s:hi('PmenuKindSel', s:bg,         s:blue_bright, 'bold')
+call s:hi('PmenuExtra',   s:fg_dim,     s:bg_widget)
+call s:hi('PmenuExtraSel', s:bg,        s:blue_bright)
+call s:hi('PmenuMatch',   s:blue_bright, s:bg_widget, 'bold')
+call s:hi('PmenuMatchSel', s:bg,        s:blue_bright)
 
 " Diff
 call s:hi('DiffAdd',      s:green,      s:bg,     'reverse')
@@ -567,6 +580,142 @@ call s:hi('NeoTreeIndentMarker',   s:fg_dark,'')
 call s:hi('NeoTreeExpander',       s:fg_dim, '')
 call s:hi('NeoTreeFloatBorder',    s:fg_dark,'')
 call s:hi('NeoTreeFloatTitle',     s:blue,   '', 'bold')
+
+" ============================================================
+" nvim-cmp
+" ============================================================
+
+call s:hi('CmpItemAbbr',            s:fg,          s:bg_widget)
+call s:hi('CmpItemAbbrMatch',       s:blue_bright, s:bg_widget, 'bold')
+call s:hi('CmpItemAbbrMatchFuzzy',  s:blue_bright, s:bg_widget, 'bold')
+call s:hi('CmpItemAbbrDeprecated',  s:fg_dark,     s:bg_widget, 'strikethrough')
+call s:hi('CmpItemMenu',            s:fg_dim,      s:bg_widget)
+call s:hi('CmpItemKind',            s:cyan,        s:bg_widget)
+call s:hi('CmpDocumentation',       s:fg,          s:bg_widget)
+call s:hi('CmpDocumentationBorder', s:fg_dark,     s:bg_widget)
+
+" Kind icons (mapped to City Lights symbol colors)
+call s:hi('CmpItemKindText',          s:fg,          '')
+call s:hi('CmpItemKindMethod',        s:cyan,        '')
+call s:hi('CmpItemKindFunction',      s:cyan,        '')
+call s:hi('CmpItemKindConstructor',   s:cyan,        '')
+call s:hi('CmpItemKindField',         s:fg_dim,      '')
+call s:hi('CmpItemKindVariable',      s:fg_dim,      '')
+call s:hi('CmpItemKindClass',         s:cyan_dark,   '')
+call s:hi('CmpItemKindInterface',     s:cyan_dark,   '')
+call s:hi('CmpItemKindModule',        s:blue,        '')
+call s:hi('CmpItemKindProperty',      s:fg_dim,      '')
+call s:hi('CmpItemKindUnit',          s:pink,        '')
+call s:hi('CmpItemKindValue',         s:pink,        '')
+call s:hi('CmpItemKindEnum',          s:cyan_dark,   '')
+call s:hi('CmpItemKindKeyword',       s:blue_bright, '')
+call s:hi('CmpItemKindSnippet',       s:green,       '')
+call s:hi('CmpItemKindColor',         s:yellow,      '')
+call s:hi('CmpItemKindFile',          s:blue_light,  '')
+call s:hi('CmpItemKindReference',     s:orange,      '')
+call s:hi('CmpItemKindFolder',        s:cyan,        '')
+call s:hi('CmpItemKindEnumMember',    s:pink,        '')
+call s:hi('CmpItemKindConstant',      s:pink,        '')
+call s:hi('CmpItemKindStruct',        s:cyan_dark,   '')
+call s:hi('CmpItemKindEvent',         s:yellow,      '')
+call s:hi('CmpItemKindOperator',      s:blue_bright, '')
+call s:hi('CmpItemKindTypeParameter', s:teal,        '')
+
+" ============================================================
+" blink.cmp
+" ============================================================
+
+call s:hi('BlinkCmpMenu',                 s:fg,          s:bg_widget)
+call s:hi('BlinkCmpMenuBorder',           s:fg_dark,     s:bg_widget)
+call s:hi('BlinkCmpMenuSelection',        s:bg,          s:blue_bright, 'bold')
+call s:hi('BlinkCmpScrollBarThumb',       '',            s:fg_dark)
+call s:hi('BlinkCmpScrollBarGutter',      '',            s:bg_alt)
+call s:hi('BlinkCmpLabel',                s:fg,          s:bg_widget)
+call s:hi('BlinkCmpLabelMatch',           s:blue_bright, s:bg_widget, 'bold')
+call s:hi('BlinkCmpLabelDeprecated',      s:fg_dark,     s:bg_widget, 'strikethrough')
+call s:hi('BlinkCmpLabelDetail',          s:fg_dim,      s:bg_widget)
+call s:hi('BlinkCmpLabelDescription',     s:fg_dim,      s:bg_widget)
+call s:hi('BlinkCmpKind',                 s:cyan,        s:bg_widget)
+call s:hi('BlinkCmpSource',               s:fg_dim,      s:bg_widget)
+call s:hi('BlinkCmpGhostText',            s:fg_dark,     '', 'italic')
+call s:hi('BlinkCmpDoc',                  s:fg,          s:bg_widget)
+call s:hi('BlinkCmpDocBorder',            s:fg_dark,     s:bg_widget)
+call s:hi('BlinkCmpDocSeparator',         s:fg_dark,     s:bg_widget)
+call s:hi('BlinkCmpDocCursorLine',        '',            s:bg_line)
+call s:hi('BlinkCmpSignatureHelp',        s:fg,          s:bg_widget)
+call s:hi('BlinkCmpSignatureHelpBorder',  s:fg_dark,     s:bg_widget)
+call s:hi('BlinkCmpSignatureHelpActiveParameter', s:yellow, s:bg_widget, 'bold')
+
+" Kind icons reuse the nvim-cmp kind colors above
+hi! link BlinkCmpKindText          CmpItemKindText
+hi! link BlinkCmpKindMethod        CmpItemKindMethod
+hi! link BlinkCmpKindFunction      CmpItemKindFunction
+hi! link BlinkCmpKindConstructor   CmpItemKindConstructor
+hi! link BlinkCmpKindField         CmpItemKindField
+hi! link BlinkCmpKindVariable      CmpItemKindVariable
+hi! link BlinkCmpKindClass         CmpItemKindClass
+hi! link BlinkCmpKindInterface     CmpItemKindInterface
+hi! link BlinkCmpKindModule        CmpItemKindModule
+hi! link BlinkCmpKindProperty      CmpItemKindProperty
+hi! link BlinkCmpKindUnit          CmpItemKindUnit
+hi! link BlinkCmpKindValue         CmpItemKindValue
+hi! link BlinkCmpKindEnum          CmpItemKindEnum
+hi! link BlinkCmpKindKeyword       CmpItemKindKeyword
+hi! link BlinkCmpKindSnippet       CmpItemKindSnippet
+hi! link BlinkCmpKindColor         CmpItemKindColor
+hi! link BlinkCmpKindFile          CmpItemKindFile
+hi! link BlinkCmpKindReference     CmpItemKindReference
+hi! link BlinkCmpKindFolder        CmpItemKindFolder
+hi! link BlinkCmpKindEnumMember    CmpItemKindEnumMember
+hi! link BlinkCmpKindConstant      CmpItemKindConstant
+hi! link BlinkCmpKindStruct        CmpItemKindStruct
+hi! link BlinkCmpKindEvent         CmpItemKindEvent
+hi! link BlinkCmpKindOperator      CmpItemKindOperator
+hi! link BlinkCmpKindTypeParameter CmpItemKindTypeParameter
+
+" ============================================================
+" snacks.nvim (picker / explorer)
+" ============================================================
+
+call s:hi('SnacksNormal',    s:fg,     s:bg_panel)
+call s:hi('SnacksNormalNC',  s:fg,     s:bg_panel)
+call s:hi('SnacksWinBar',    s:blue_bright, s:bg_panel, 'bold')
+call s:hi('SnacksWinBarNC',  s:fg_dim, s:bg_panel)
+call s:hi('SnacksWinSeparator', s:bg_alt, s:bg_panel)
+
+call s:hi('SnacksPicker',             s:fg,          s:bg_panel)
+call s:hi('SnacksPickerBorder',       s:fg_dark,     s:bg_panel)
+call s:hi('SnacksPickerTitle',        s:blue_bright, s:bg_panel, 'bold')
+call s:hi('SnacksPickerFooter',       s:fg_dim,      s:bg_panel)
+call s:hi('SnacksPickerInput',        s:fg,          s:bg_panel)
+call s:hi('SnacksPickerInputBorder',  s:fg_dark,     s:bg_panel)
+call s:hi('SnacksPickerPrompt',       s:blue_bright, s:bg_panel)
+call s:hi('SnacksPickerList',         s:fg,          s:bg_panel)
+call s:hi('SnacksPickerListBorder',   s:fg_dark,     s:bg_panel)
+call s:hi('SnacksPickerPreview',      s:fg,          s:bg_panel)
+call s:hi('SnacksPickerPreviewBorder', s:fg_dark,    s:bg_panel)
+call s:hi('SnacksPickerMatch',        s:blue_bright, '', 'bold')
+call s:hi('SnacksPickerCursorLine',   '',            s:bg_line)
+call s:hi('SnacksPickerSelected',     s:blue_bright, '')
+call s:hi('SnacksPickerTree',         s:fg_dark,     '')
+call s:hi('SnacksPickerIcon',         s:blue_light,  '')
+call s:hi('SnacksPickerDir',          s:fg_dim,      '')
+call s:hi('SnacksPickerDirectory',    s:cyan,        '')
+call s:hi('SnacksPickerFile',         s:fg,          '')
+call s:hi('SnacksPickerPathHidden',   s:fg_dark,     '')
+call s:hi('SnacksPickerPathIgnored',  s:fg_dark,     '')
+call s:hi('SnacksPickerSpecial',      s:purple,      '')
+call s:hi('SnacksPickerLink',         s:cyan,        '')
+call s:hi('SnacksPickerLinkBroken',   s:red,         '')
+call s:hi('SnacksPickerGitStatus',          s:fg_dim,   '')
+call s:hi('SnacksPickerGitStatusAdded',     s:green,    '')
+call s:hi('SnacksPickerGitStatusModified',  s:yellow,   '')
+call s:hi('SnacksPickerGitStatusDeleted',   s:red,      '')
+call s:hi('SnacksPickerGitStatusUntracked', s:orange,   '')
+call s:hi('SnacksPickerGitStatusIgnored',   s:fg_dark,  '')
+call s:hi('SnacksPickerGitStatusRenamed',   s:blue,     '')
+call s:hi('SnacksPickerGitStatusStaged',    s:green,    '')
+call s:hi('SnacksPickerGitStatusUnmerged',  s:purple,   '')
 
 " ============================================================
 " Gitsigns (newer)
